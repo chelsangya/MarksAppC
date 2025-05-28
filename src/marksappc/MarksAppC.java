@@ -4,6 +4,7 @@
  */
 package marksappc;
 
+import marksappc.controller.RegisterController;
 import marksappc.view.BackgroundCheck;
 import marksappc.view.RegisterView;
 
@@ -18,18 +19,12 @@ public class MarksAppC {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        BackgroundCheck view= new BackgroundCheck();
-        view.setVisible(true);
+        RegisterView view = new RegisterView();
+        RegisterController controller = new RegisterController(view);
+        controller.open();
+        
     }
     
 }
-//packages
-//view, model, controller, database, dao
 
-//        database named marks
-// table named users
-//id -- auto_increment
-//fname
-//email
-//fpassword
  

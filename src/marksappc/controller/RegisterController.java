@@ -35,14 +35,26 @@ public class RegisterController {
             String email = view.getEmailTextField().getText();
             String password = String.valueOf(view.getPasswordField().getPassword());
             String confirmPassword = String.valueOf(view.getConfirmPasswordField().getPassword());
+            
+            if(name.isEmpty()||email.isEmpty()||password.isEmpty()||confirmPassword.isEmpty()){
+                JOptionPane.showMessageDialog(view,"Fill in all the fields");
+            } else if (!password.equals(confirmPassword)){
+                JOptionPane.showMessageDialog(view,"Passwords do not match");
+
+            } else {
+//             if validated   
             UserData user = new UserData(name,email,password);
             UserDao userDao = new UserDao();
             boolean result = userDao.register(user);
+            
             if (result){
                 JOptionPane.showMessageDialog(view, "Registered successfully");
             } else {
                 JOptionPane.showMessageDialog(view,"Registration failed");
             }
+            }
+            
+            
         }
         
     }
