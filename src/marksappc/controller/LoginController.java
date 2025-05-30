@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import marksappc.dao.UserDao;
 import marksappc.model.LoginRequest;
 import marksappc.model.UserData;
+import marksappc.view.DashboardView;
 import marksappc.view.LoginView;
 
 /**
@@ -47,6 +48,11 @@ public class LoginController {
                 if (user==null){
                     JOptionPane.showMessageDialog(view,"Invalid credentials");
                 } else {
+                    DashboardView dashboardView= new DashboardView();
+                    DashboardController dashboardController = 
+                            new DashboardController(dashboardView,user);
+                    dashboardController.open();
+                    close();
                     
                 }
                 
